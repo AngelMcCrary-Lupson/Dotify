@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Dotify</string>
+    <string name="plays">plays</string>
+    <string name="skip_prev">Skipping to previous track"</string>
+    <string name="skip_next">Skipping to next track"</string>
+    <string name="song_name">Weather</string>
+    <string name="song_artist">Ginger Root</string>
+    <string name="change_user">CHANGE USER</string>
+    <string name="user_name">Name</string>
+    <string name="apply_user">APPLY</string>
+    <string name="user_name_hint">Enter your user name</string>
+    <string name="one_to_one">1:1</string>
 </resources>
