@@ -2,6 +2,7 @@ package edu.uw.angelml.dotify
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.ericchee.songdataprovider.SongDataProvider
 import edu.uw.angelml.dotify.databinding.ActivitySongListBinding
 
@@ -18,6 +19,11 @@ class SongListActivity : AppCompatActivity() {
             val adapter = SongListAdapter(songList)
             title = getString(R.string.song_list_title)
             rvSongs.adapter = adapter
+
+            adapter.onSongClickListener = { position, songName, songArtist ->
+                Toast.makeText(this@SongListActivity, "You clicked as pos: $position", Toast.LENGTH_SHORT).show()
+                miniPlayerText.text = songName + " - " + songArtist
+            }
 
             shuffleBtn.setOnClickListener{
                 adapter.shuffleSongs(songList.toMutableList().shuffled())

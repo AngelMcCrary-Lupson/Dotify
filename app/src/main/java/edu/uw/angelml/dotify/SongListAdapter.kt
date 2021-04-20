@@ -12,6 +12,8 @@ class SongListAdapter(private var listOfSongs: List<Song>): RecyclerView.Adapter
 
     class SongViewHolder(val binding: ItemSongBinding) : RecyclerView.ViewHolder(binding.root)
 
+    var onSongClickListener: (position: Int, songName: String, songArtist: String) -> Unit = { _, _, _ ->}
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SongViewHolder {
         val binding = ItemSongBinding.inflate(LayoutInflater.from(parent.context))
         return SongViewHolder(binding)
@@ -22,7 +24,10 @@ class SongListAdapter(private var listOfSongs: List<Song>): RecyclerView.Adapter
         with(holder.binding) {
             songName.text = song.title
             artistName.text = song.artist
-            albumArt.setImageResource(song.smallImageID) //Doesn't show colored squares
+            albumArt.setImageResource(song.smallImageID)
+            itemSongRoot.setOnClickListener {
+                onSongClickListener(position, song.title, song.artist)
+            }
         }
     }
 
