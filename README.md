@@ -12,10 +12,10 @@ This app is a copycat of Spotify, meaning users can stream music.
 - User can change the color of the play count to a random color
 
 ### App Screenshots
-| <img src="github%20screenshots/Dotify_hwk2_scr_1.jpg" alt="Image of App's Main Screen - All Songs" width="250" height="500"> |
-<img src="github%20screenshots/Dotify_hwk2_scr_2.jpg" alt="Shuffled Song List w/ Mini Player Enabled" width="250" height="500"> |
-<img src="github%20screenshots/Dotify_hwk2_scr_3.jpg" alt="Scrolling Through Song List w/ Mini Player Enabled" width="250" height="500"> |
-<img src="github%20screenshots/Dotify_hwk2_scr_4.jpg" alt="Music Player View - Don't Start Now Selected" width="250" height="500"> |
+| <img src="github%20screenshots/Dotify_hwk2_src_1.jpg" alt="Image of App's Main Screen - All Songs" width="250" height="500"> |
+<img src="github%20screenshots/Dotify_hwk2_src_2.jpg" alt="Shuffled Song List w/ Mini Player Enabled" width="250" height="500"> |
+<img src="github%20screenshots/Dotify_hwk2_src_3.jpg" alt="Scrolling Through Song List w/ Mini Player Enabled" width="250" height="500"> |
+<img src="github%20screenshots/Dotify_hwk2_src_4.jpg" alt="Music Player View - Don't Start Now Selected" width="250" height="500"> |
 
 ## Extra Credit Attempted
 1. Show a stock Android back arrow button, ←, in the Header/Toolbar of Activity B. When clicked, it
