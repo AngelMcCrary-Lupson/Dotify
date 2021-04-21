@@ -8,8 +8,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvSongs"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="@dimen/no_margin"
+        android:layout_height="@dimen/no_margin"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@id/miniPlayer"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,18 +27,20 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/rvSongs"
-            android:padding="8dp">
+            android:padding="@dimen/small_padding"
+            android:elevation="@dimen/small_padding">
 
 
             <TextView
                 android:id="@+id/miniPlayerText"
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/no_margin"
                 android:layout_height="wrap_content"
-                android:text="Song Name - Artist Name"
+                android:text="@string/mini_player_text"
                 android:ellipsize="end"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:textSize="16sp"
+                android:singleLine="true"
+                android:layout_marginLeft="@dimen/small_margin"
+                android:layout_marginRight="@dimen/small_margin"
+                android:textSize="@dimen/med_text"
                 app:layout_constraintBottom_toBottomOf="@id/miniPlayer"
                 app:layout_constraintEnd_toStartOf="@id/shuffleBtn"
                 app:layout_constraintStart_toStartOf="parent"
@@ -48,8 +50,8 @@
             android:id="@+id/shuffleBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Shuffle"
-            app:layout_constraintStart_toEndOf="@id/miniPlayerText"
+            android:text="@string/shuffle_btn"
+            android:layout_marginEnd="@dimen/small_margin"
             app:layout_constraintBottom_toBottomOf="@id/miniPlayer"
             app:layout_constraintTop_toTopOf="@id/miniPlayer"
             app:layout_constraintEnd_toEndOf="@id/miniPlayer" />

@@ -11,4 +11,9 @@
     <string name="user_name_hint">Enter your user name</string>
     <string name="one_to_one">1:1</string>
     <string name="song_list_title">All Songs</string>
+    <string name="mini_player_text">%s - %s</string>
+    <string name="song_name_placeholder">Song</string>
+    <string name="artist_name_placeholder">Artist</string>
+    <string name="album_art_img_desc">Album Art</string>
+    <string name="shuffle_btn">Shuffle</string>
 </resources>
