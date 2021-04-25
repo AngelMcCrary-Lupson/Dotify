@@ -7,6 +7,8 @@
     android:padding="@dimen/med_padding"
     tools:context=".PlayerActivity">
 
+
+
     <ImageView
         android:id="@+id/songCoverImg"
         android:layout_width="@dimen/large_image"
@@ -15,7 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="@dimen/large_margin"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settingsBtn"
         app:srcCompat="@drawable/weather_album_art" />
 
     <ImageButton
@@ -91,5 +93,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/playBtn"
         app:layout_constraintTop_toBottomOf="@+id/songAuthorView" />
+
+    <Button
+        android:id="@+id/settingsBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        app:layout_constraintBottom_toTopOf="@+id/songCoverImg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

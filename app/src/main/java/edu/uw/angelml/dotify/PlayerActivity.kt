@@ -6,9 +6,8 @@ import android.graphics.Color
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat.startActivity
 import com.ericchee.songdataprovider.Song
-import edu.uw.angelml.dotify.databinding.ActivityMainBinding
+import edu.uw.angelml.dotify.databinding.ActivityPlayerBinding
 import java.util.*
 
 // Add Intent & Extras from Song List Activity
@@ -28,13 +27,13 @@ class PlayerActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_player)
 
         // Extra Credit - Android Back Button in Header
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         // Add View Binding
-        val binding = ActivityMainBinding.inflate(layoutInflater).apply {setContentView(root)}
+        val binding = ActivityPlayerBinding.inflate(layoutInflater).apply {setContentView(root)}
 
         with(binding) {
             // Set Song Name, Artist, & Album Art
@@ -58,6 +57,12 @@ class PlayerActivity : AppCompatActivity() {
             songCoverImg.setOnLongClickListener{
                 changePlayCountColor(playCountView)
                 true
+            }
+
+            // Start Settings Activity
+            settingsBtn.setOnClickListener {
+                // need to pass in curr song
+                startSettingsActivity(this@PlayerActivity)
             }
         }
     }
