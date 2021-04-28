@@ -18,10 +18,11 @@ This app is a copycat of Spotify, meaning users can stream music.
 - User settings and subsequent navigation menu
 
 ### App Screenshots
-| <img src="github%20screenshots/Dotify_hwk3_src_1.jpg" alt="Image of Playing Song in Landscape" width="250" height="500"> |
-<img src="github%20screenshots/Dotify_hwk3_src_2.jpg" alt="Song Statistics View" width="250" height="500"> |
-<img src="github%20screenshots/Dotify_hwk3_src_3.jpg" alt="About View" width="250" height="500"> |
 <img src="github%20screenshots/Dotify_hwk3_src_4.jpg" alt="User Profile" width="250" height="500"> |
+<img src="github%20screenshots/Dotify_hwk3_src_2.jpg" alt="Song Statistics View" width="250" height="500"> |
+<img src="github%20screenshots/Dotify_hwk3_src_3.jpg" alt="About View" width="250" height="500"> 
+
+<img src="github%20screenshots/Dotify_hwk3_src_1.jpg" alt="Image of Playing Song in Landscape" width="500" height="250"> 
 
 ## Extra Credit Attempted
 1. Every Fragment (other than SettingsFragment) has a Up/back button in the top right corner. Clicking
