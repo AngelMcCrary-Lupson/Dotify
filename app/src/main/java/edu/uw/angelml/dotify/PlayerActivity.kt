@@ -23,10 +23,26 @@ fun navigateToPlayActivity(context: Context, song: Song) {
 
 class PlayerActivity : AppCompatActivity() {
     private val randPlayCount: Int = (10000 - (Math.random() * 10000)).toInt()
-    private var currPlayCount: Int = randPlayCount
+    private var currPlayCount = 0;
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.run {
+            putInt("currPlayCount", currPlayCount)
+        }
+        super.onSaveInstanceState(outState)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Load Play Count State
+        if (savedInstanceState != null) {
+            with(savedInstanceState) {
+                currPlayCount = getInt("currPlayCount")
+            }
+        } else {
+            currPlayCount = randPlayCount
+        }
+
         setContentView(R.layout.activity_player)
 
         // Extra Credit - Android Back Button in Header
@@ -53,7 +69,7 @@ class PlayerActivity : AppCompatActivity() {
             }
 
             // Make Play Count a Random Number
-            val playCountText = randPlayCount.toString() + " " + getString(R.string.plays)
+            val playCountText = currPlayCount.toString() + " " + getString(R.string.plays)
             playCountView.text = playCountText
 
             // Set Up Playback Buttons
