@@ -11,7 +11,9 @@ import edu.uw.angelml.dotify.databinding.FragmentProfileBinding
 class AboutFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding = FragmentAboutBinding.inflate(inflater)
-
+        with(binding) {
+            versionBuild.text = "Version Build: " + BuildConfig.VERSION_NAME
+        }
         return binding.root
     }
 }

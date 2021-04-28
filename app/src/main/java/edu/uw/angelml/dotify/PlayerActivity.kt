@@ -44,6 +44,14 @@ class PlayerActivity : AppCompatActivity() {
                 songNameView.text = selectSong.title
             }
 
+            // Start Settings Activity
+            settingsBtn.setOnClickListener {
+                // need to pass in curr song
+                if (selectSong != null) {
+                    startSettingsActivity(this@PlayerActivity, selectSong, currPlayCount.toString())
+                }
+            }
+
             // Make Play Count a Random Number
             val playCountText = randPlayCount.toString() + " " + getString(R.string.plays)
             playCountView.text = playCountText
@@ -57,12 +65,6 @@ class PlayerActivity : AppCompatActivity() {
             songCoverImg.setOnLongClickListener{
                 changePlayCountColor(playCountView)
                 true
-            }
-
-            // Start Settings Activity
-            settingsBtn.setOnClickListener {
-                // need to pass in curr song
-                startSettingsActivity(this@PlayerActivity)
             }
         }
     }
