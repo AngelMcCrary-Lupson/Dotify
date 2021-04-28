@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/med_padding"
+    tools:context=".PlayerActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/med_padding"
+                tools:context=".PlayerActivity">
+
+
+                <ImageView
+                    android:id="@+id/songCoverImg"
+                    android:layout_width="@dimen/large_image"
+                    android:layout_height="@dimen/large_image"
+                    android:layout_marginTop="@dimen/large_margin"
+                    app:layout_constraintDimensionRatio="@string/one_to_one"
+                    app:layout_constraintEnd_toStartOf="@+id/backBtn"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/weather_album_art" />
+
+                <ImageButton
+                    android:id="@+id/playBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/large_margin"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_play"
+                    app:layout_constraintEnd_toStartOf="@id/forwardBtn"
+                    app:layout_constraintStart_toEndOf="@id/backBtn"
+                    app:layout_constraintTop_toBottomOf="@+id/playCountView" />
+
+                <ImageButton
+                    android:id="@+id/forwardBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/x_large_margin"
+                    android:layout_marginEnd="@dimen/x_large_margin"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_next"
+                    app:layout_constraintDimensionRatio="@string/one_to_one"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toEndOf="@+id/playBtn"
+                    app:layout_constraintTop_toBottomOf="@+id/playCountView" />
+
+                <ImageButton
+                    android:id="@+id/backBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/x_large_margin"
+                    android:layout_marginTop="@dimen/x_large_margin"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_previous"
+                    app:layout_constraintEnd_toStartOf="@+id/playBtn"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintStart_toEndOf="@id/songCoverImg"
+                    app:layout_constraintTop_toBottomOf="@+id/playCountView" />
+
+                <TextView
+                    android:id="@+id/songAuthorView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_margin"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@string/song_artist"
+                    app:layout_constraintBottom_toTopOf="@id/playCountView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/songCoverImg"
+                    app:layout_constraintTop_toBottomOf="@+id/songNameView" />
+
+                <TextView
+                    android:id="@+id/songNameView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/song_name"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/large_text"
+                    app:layout_constraintBottom_toBottomOf="@id/songAuthorView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/songCoverImg"
+                    app:layout_constraintTop_toTopOf="@id/songCoverImg"
+                    app:layout_constraintVertical_chainStyle="spread" />
+
+                <TextView
+                    android:id="@+id/playCountView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/plays"
+                    app:layout_constraintBottom_toTopOf="@id/playBtn"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/songCoverImg"
+                    app:layout_constraintTop_toBottomOf="@+id/songAuthorView" />
+
+                <Button
+                    android:id="@+id/settingsBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Settings"
+                    app:layout_constraintBottom_toTopOf="@+id/songCoverImg"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
