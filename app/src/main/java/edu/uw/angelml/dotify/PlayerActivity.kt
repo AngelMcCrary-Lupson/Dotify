@@ -21,9 +21,12 @@ fun navigateToPlayActivity(context: Context, song: Song) {
     context.startActivity(intent)
 }
 
+
 class PlayerActivity : AppCompatActivity() {
     private val randPlayCount: Int = (10000 - (Math.random() * 10000)).toInt()
     private var currPlayCount = 0;
+
+    private val dotifyApplication: DotifyApplication by lazy { application as DotifyApplication }
 
     override fun onSaveInstanceState(outState: Bundle) {
         outState.run {
@@ -110,5 +113,7 @@ class PlayerActivity : AppCompatActivity() {
         currPlayCount++
         val newPlayCountText = currPlayCount.toString() + " " + getString(R.string.plays)
         playCountView.text = newPlayCountText
+        // Song Manager
+        dotifyApplication.songManager.onSongPlayed()
     }
 }
