@@ -16,14 +16,13 @@ This app is a copycat of Spotify, meaning users can stream music.
 - Consistent state when user puts phone to sleep or changes orientation
 - Landscape layouts
 - User settings and subsequent navigation menu
+- App loads user profile data from the Internet
+- App keeps track of the number of songs played during the app's session
 
 ### App Screenshots
-<img src="github%20screenshots/Dotify_hwk3_src_4.jpg" alt="User Profile" width="250" height="500"> |
-<img src="github%20screenshots/Dotify_hwk3_src_2.jpg" alt="Song Statistics View" width="250" height="500"> |
-<img src="github%20screenshots/Dotify_hwk3_src_3.jpg" alt="About View" width="250" height="500"> 
+<img src="github%20screenshots/Dotify_hwk4_src_1.jpg" alt="User Profile" width="250" height="500"> |
+<img src="github%20screenshots/Dotify_hwk4_src_2.jpg" alt="Error Fetching User Profile" width="250" height="500"> 
 
-<img src="github%20screenshots/Dotify_hwk3_src_1.jpg" alt="Image of Playing Song in Landscape" width="500" height="250"> 
 
 ## Extra Credit Attempted
-1. Every Fragment (other than SettingsFragment) has a Up/back button in the top right corner. Clicking
-will take you back to the previous fragment
+N/A
