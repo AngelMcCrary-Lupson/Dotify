@@ -11,6 +11,15 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/profileError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="An error occured when fetching user profile data!"
+            android:textColor="@color/design_default_color_error"
+            android:visibility="gone"/>
+
         <ImageView
             android:id="@+id/profilePic"
             android:layout_width="match_parent"
