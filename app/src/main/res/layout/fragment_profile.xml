@@ -15,36 +15,23 @@
             android:id="@+id/profilePic"
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:src="@drawable/xiao_long"
             app:layout_constraintDimensionRatio="@string/one_to_one" />
 
         <TextView
             android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Username: Anglz"
             android:textAlignment="center"/>
 
         <TextView
             android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Email: angelml@uw.edu"
             android:textAlignment="center"/>
 
-        <TextView
-            android:id="@+id/dateJoined"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Member Since: June 2013"
-            android:textAlignment="center"/>
 
-        <TextView
-            android:id="@+id/favoriteArtist"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Favorite Artist: Bad Suns"
-            android:textAlignment="center"/>
+
+
     </LinearLayout>
 
 </LinearLayout>
