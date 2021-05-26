@@ -30,10 +30,10 @@
             android:text="Statistics" />
 
         <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/switchTasks"
+            android:id="@+id/switchNotifications"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Allow Background Tasks"
+            android:text="Push Notifications"
             app:switchPadding="@dimen/small_padding"
             />
 

@@ -15,7 +15,7 @@ class SongSyncWorker (
 
     override suspend fun doWork(): Result {
 
-        Log.i("SongSyncWorker", "syncing songs now")
+        // Log.i("SongSyncWorker", "syncing songs now")
         songNotificationManager.publishNewSongNotification()
 
         return Result.success()

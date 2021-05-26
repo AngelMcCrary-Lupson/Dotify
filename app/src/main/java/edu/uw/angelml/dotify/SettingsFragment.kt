@@ -15,11 +15,15 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import edu.uw.angelml.dotify.databinding.FragmentSettingsBinding
 
+const val NOTIFICATIONS_ENABLED_PREF_KEY = "notifications_enabled"
 
 class SettingsFragment : Fragment() {
     private lateinit var dotifyApplication: DotifyApplication
     private val navController by lazy {findNavController()}
     val safeArgs: SettingsFragmentArgs by navArgs()
+    private val songNotificationManager: SongNotificationManager by lazy { dotifyApplication.notificationManager }
+    private val preferences by lazy { dotifyApplication.preferences }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Getting App context
         val context = this.context
@@ -43,18 +47,32 @@ class SettingsFragment : Fragment() {
                 navController.navigate(SettingsFragmentDirections.actionSettingsFragmentToAboutFragment())
             }
 
-//            dotifyTaskManager.isNotificationsEnabled = switchNotifications.isChecked
+            // Set switch to previous settings from shared preferences
+            val isSwitched = preferences.getBoolean(NOTIFICATIONS_ENABLED_PREF_KEY, false)
+            switchNotifications.isChecked = isSwitched
+            songNotificationManager.isNotificationsEnabled = isSwitched
 
+            // Testing logs shared preference
+            // Log.i("Song", "Prefs is : " + preferences.getBoolean(NOTIFICATIONS_ENABLED_PREF_KEY, false))
 
-            switchTasks.setOnCheckedChangeListener {_, isChecked ->
+            switchNotifications.setOnCheckedChangeListener {_, isChecked ->
                 // Toggle Notifications
-//                dotifyTaskManager.isTasksEnabled = switchTasks.isChecked
+                songNotificationManager.isNotificationsEnabled = switchNotifications.isChecked
 
+                // Saving the value in preferences whether the switch is on or not
+                val editor = preferences.edit()
+                editor.putBoolean(NOTIFICATIONS_ENABLED_PREF_KEY, isChecked)
+                editor.apply()
+
+                // Testing logs shared preference
+                // Log.i("Song", "Saving Prefs to : " + preferences.getBoolean(NOTIFICATIONS_ENABLED_PREF_KEY, false))
+
+                // Toggles Notifications
                 if (isChecked) {
-                    Toast.makeText(context, "Background Tasks enabled", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Push Notifications enabled", Toast.LENGTH_SHORT).show()
                     dotifyApplication.refreshSongManager.startRefreshSongsPeriodically()
                 } else {
-                    Toast.makeText(context, "Background Tasks disabled", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Push Notifications disabled", Toast.LENGTH_SHORT).show()
                     dotifyApplication.refreshSongManager.stopPeriodicallyRefreshing()
                 }
             }

@@ -19,19 +19,24 @@ class SongNotificationManager (
 ) {
     private val notificationManager = NotificationManagerCompat.from(context)
 
+    // Notifications Disabled as default
+    var isNotificationsEnabled = false
     init {
         // Initialize all channels
         initNotificationChannels()
     }
 
     fun publishNewSongNotification() {
-        // Get random song to notifty users about
+        // Check to see if notifications are enabled
+        if (!isNotificationsEnabled) {
+            return
+        }
+
+        // Get random song to notify users about
         val randSong = SongDataProvider.getAllSongs().random()
         val artistName = randSong.artist
         val songTitle = randSong.title
 
-
-        // Define the intent or action you want when user taps on notification
         val intent = Intent(context, PlayerActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             val bundle = Bundle().apply {
@@ -39,23 +44,22 @@ class SongNotificationManager (
             }
             putExtras(bundle)
         }
-        val pendingIntent: PendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT) // dont forget to add PendingIntent.FLAG_UPDATE_CURRENT to send data over
+        val pendingIntent: PendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
 
 
 
 
         // Build information you want the notification to show
-        val builder = NotificationCompat.Builder(context, NEW_SONGS_CHANNEL_ID)    // channel id from creating the channel
+        val builder = NotificationCompat.Builder(context, NEW_SONGS_CHANNEL_ID)
                 .setSmallIcon(R.drawable.ic_song)
                 .setContentTitle("${artistName} just released a new song!!!")
                 .setContentText("Listen to ${songTitle} now on Dotify")
-                .setContentIntent(pendingIntent)    // sets the action when user clicks on notification
-                .setAutoCancel(true)    // This will dismiss the notification tap
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 
-        // Tell the OS to publish the notification using the info
+
         with(notificationManager) {
-            // notificationId is a unique int for each notification that you must define
             val notificationId = Random.nextInt()
             notify(notificationId, builder.build())
         }
@@ -66,20 +70,16 @@ class SongNotificationManager (
     }
 
     private fun initNewSongChannel() {
-        // Create the NotificationChannel, but only on API 26+ because
-        // the NotificationChannel class is new and not in the support library
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            // Info about the channel
             val name = context.getString(R.string.new_songs)
             val descriptionText = context.getString(R.string.new_songs_channel_description)
             val importance = NotificationManager.IMPORTANCE_DEFAULT
 
-            // Create channel object
             val channel = NotificationChannel(NEW_SONGS_CHANNEL_ID, name, importance).apply {
                 description = descriptionText
             }
 
-            // Tell the Android OS to create a channel
             notificationManager.createNotificationChannel(channel)
         }
     }

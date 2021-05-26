@@ -10,8 +10,8 @@ class RefreshSongManager(context: Context) {
 
     private val workManager: WorkManager = WorkManager.getInstance(context)
 
+    // For Testing - One Time Work Request
     fun refreshSongs() {
-
         val request = OneTimeWorkRequestBuilder<SongSyncWorker>()
                 .setInitialDelay(5, TimeUnit.SECONDS)
                 .setConstraints(
@@ -57,8 +57,5 @@ class RefreshSongManager(context: Context) {
             }
         }
     }
-
-
-
 
 }
